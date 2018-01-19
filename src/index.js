@@ -372,7 +372,7 @@ export default class extends Component {
    * Drag end handle
    * @param {object} e native event
    */
-  onScroll = e => this.props.onScroll(e.nativeEvent);
+  onScroll = e => this.props.onScrollBeginDrag ? this.props.onScroll(e.nativeEvent) : null
 
   /*
    * Drag end handle
