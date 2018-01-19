@@ -66,6 +66,8 @@ declare module 'react-native-swiper' {
         prevButton?: JSX.Element
 
         // Supported ScrollResponder
+        // When the client on Scrolling
+        onScroll?: any
         // When animation begins after letting up
         onScrollBeginDrag?: any
         // Makes no sense why this occurs first during bounce

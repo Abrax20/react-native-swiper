@@ -368,6 +368,11 @@ export default class extends Component {
       this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
     })
   }
+  /*
+   * Drag end handle
+   * @param {object} e native event
+   */
+  onScroll = e => this.props.onScroll(e.nativeEvent);
 
   /*
    * Drag end handle
@@ -627,6 +632,7 @@ export default class extends Component {
           {...this.props}
           {...this.scrollViewPropOverrides()}
           contentContainerStyle={[styles.wrapperIOS, this.props.style]}
+          onScroll={this.onScroll}
           contentOffset={this.state.offset}
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
@@ -639,6 +645,7 @@ export default class extends Component {
     return (
       <ViewPagerAndroid ref={this.refScrollView}
         {...this.props}
+        onPageScroll={this.onScroll}
         initialPage={this.props.loop ? this.state.index + 1 : this.state.index}
         onPageSelected={this.onScrollEnd}
         key={pages.length}
